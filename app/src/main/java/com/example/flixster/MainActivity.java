@@ -45,11 +45,11 @@ public class MainActivity extends AppCompatActivity {
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(NOW_PLAYING_URL, new JsonHttpResponseHandler() {
             @Override
-            public void onSuccess(int i, Headers headers, JSON json) {
+            public void onSuccess(int statusCode, Headers headers, JSON json) {
                 Log.d(TAG, "onSuccess");
                 JSONObject jsonObject = json.jsonObject;
                 try {
-                    JSONArray results = jsonObject.getJSONArray("results");
+                    JSONArray results = jsonObject.getJSONArray("result");
                     Log.i(TAG, "Results:" + results.toString());
                     movies.addAll((Movie.fromJsonArray(results)));
                     movieAdapter.notifyDataSetChanged();
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(int i, Headers headers, String s, Throwable throwable) {
+            public void onFailure(int statusCode, Headers headers, String s, Throwable throwable) {
                 Log.d(TAG, "onFailure");
             }
         });
