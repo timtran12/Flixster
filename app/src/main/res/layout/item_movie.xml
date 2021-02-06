@@ -14,7 +14,18 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+            />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/ivIcon"
+        android:src="@drawable/yt_icon_rgb"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="65dp"
+        android:background="@android:color/transparent"
+        android:visibility="gone"/>
 
     <TextView
         android:id="@+id/tvTitle"
